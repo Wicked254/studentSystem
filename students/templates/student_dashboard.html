@@ -1,0 +1,32 @@
+<!-- students/templates/student_dashboard.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+ <h2 class="text-center">Student Dashboard</h2>
+ <p class="text-center">Welcome, {{ request.user.username }}!</p>
+
+ <ul class="nav nav-pills justify-content-center mb-4">
+  <li class="nav-item">
+   <a class="nav-link btn btn-outline-primary" href="{% url 'view_profile' %}">View Profile</a>
+  </li>
+  <li class="nav-item">
+   <a class="nav-link btn btn-outline-primary" href="{% url 'issue_form' %}">Lodge Complaint</a>
+  </li>
+  <li class="nav-item">
+   <a class="nav-link btn btn-outline-primary" href="{% url 'complaint_history' %}">Complaint History</a>
+  </li>
+  <li class="nav-item">
+   <a class="nav-link btn btn-outline-primary" href="{% url 'feedback' %}">Feedback</a>
+  </li>
+ </ul>
+
+ <a href="{% url 'logout' %}" class="btn btn-danger mt-3">Logout</a>
+
+ <div class="card mt-4">
+  <div class="card-body">
+   {% block dashboard_content %}{% endblock %}
+  </div>
+ </div>
+</div>
+{% endblock %}

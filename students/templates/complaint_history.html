@@ -1,0 +1,19 @@
+<!-- students/templates/complaint_history.html -->
+{% extends 'student_dashboard.html' %}
+
+{% block dashboard_content %}
+<h3 class="text-center mb-4">Complaint History</h3>
+
+{% if complaints %}
+<ul class="list-group">
+ {% for complaint in complaints %}
+ <li class="list-group-item">
+  <strong>{{ complaint.issue_type }}</strong> - {{ complaint.date_submitted }}
+  {% if complaint.is_resolved %}<span class="badge badge-success ml-2">Resolved</span>{% endif %}
+ </li>
+ {% endfor %}
+</ul>
+{% else %}
+<p class="text-center">No complaints submitted yet.</p>
+{% endif %}
+{% endblock %}

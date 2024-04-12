@@ -69,8 +69,6 @@ TEMPLATES = [
     },
 ]
 AUTHENTICATION_BACKENDS = [
-    'students.backends.StudentBackend',
-    'students.backends.AdminBackend',
     'django.contrib.auth.backends.ModelBackend',  # Default backend
 ]
 WSGI_APPLICATION = 'studentSystem.wsgi.application'

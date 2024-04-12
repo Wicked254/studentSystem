@@ -2,65 +2,76 @@
 <html lang="en">
 
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
- <title>Registration Form</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <title>Registration Form</title>
 </head>
 
 <body>
- <div class="container mt-5">
-  <!-- Registration form -->
-  <form class="col-6 mx-auto card p-3 shadow-lg" method="post" enctype="multipart/form-data">
-   {% csrf_token %} <!-- CSRF token for security -->
+  <div class="container mt-5">
+    <!-- Registration form -->
+    <form class="col-6 mx-auto card p-3 shadow-lg" method="post" enctype="multipart/form-data">
+      {% csrf_token %} <!-- CSRF token for security -->
 
-   <!-- Registration form heading -->
-   <h1 style="text-align: center;"><span style="color: green;">Student registration form</span></h1>
-   <h3>Register</h3>
-   <hr>
+      <!-- Registration form heading -->
+      <h1 style="text-align: center;"><span style="color: green;">Student registration form</span></h1>
+      <h3>Register</h3>
+      <hr>
 
-   <!-- Display error/success messages -->
-   {% if messages %}
-   <div class="alert alert-primary" role="alert">
-    {% for message in messages %}
-    {{ message }}
-    {% endfor %}
-   </div>
-   {% endif %}
+      <!-- Display error/success messages -->
+      {% if messages %}
+      <div class="alert alert-primary" role="alert">
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+      </div>
+      {% endif %}
 
-   <!-- First Name input field -->
-   <div class="form-group">
-    <label for="exampleInputEmail1">First name</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-     placeholder="Enter First name" name="first_name" required>
-   </div>
+      <!-- First Name input field -->
+      <div class="form-group">
+        <label for="first_name">First name</label>
+        <input type="text" class="form-control" id="first_name" aria-describedby="emailHelp"
+          placeholder="Enter First name" name="first_name" required>
+      </div>
 
-   <!-- Last Name input field -->
-   <div class="form-group">
-    <label for="exampleInputEmail1">Last name</label>
-    <input type="text" name="last_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-     placeholder="Enter Last name" required>
-   </div>
+      <!-- Last Name input field -->
+      <div class="form-group">
+        <label for="last_name">Last name</label>
+        <input type="text" name="last_name" class="form-control" id="last_name" aria-describedby="emailHelp"
+          placeholder="Enter Last name" required>
+      </div>
 
-   <!-- Username input field -->
-   <div class="form-group">
-    <label for="exampleInputEmail1">Username</label>
-    <input type="text" class="form-control" name="username" id="exampleInputEmail1" aria-describedby="emailHelp"
-     placeholder="Enter email" required>
-   </div>
+      <!-- Email input field -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp"
+          placeholder="Enter Email" required>
+      </div>
 
-   <!-- Password input field -->
-   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password"
-     required>
-   </div>
+      <!-- Username input field -->
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" name="username" id="username" aria-describedby="emailHelp"
+          placeholder="Enter Username" required>
+      </div>
+      <!-- Registration Number input field -->
+      <div class="form-group">
+        <label for="registration_number">Registration Number</label>
+        <input type="text" class="form-control" name="registration_number" id="registration_number"
+          placeholder="Enter Registration Number" required>
+      </div>
 
-  
-   <!-- Submit button -->
-   <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
- </div>
+      <!-- Password input field -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+      </div>
+
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
 </body>
 
 </html>

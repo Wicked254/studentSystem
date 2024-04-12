@@ -1,32 +1,50 @@
-<!-- students/templates/student_dashboard.html -->
-{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block content %}
-<div class="container mt-5">
- <h2 class="text-center">Student Dashboard</h2>
- <p class="text-center">Welcome, {{ request.user.username }}!</p>
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Student Dashboard</title>
+ <!-- Bootstrap CSS -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
 
- <ul class="nav nav-pills justify-content-center mb-4">
-  <li class="nav-item">
-   <a class="nav-link btn btn-outline-primary" href="{% url 'view_profile' %}">View Profile</a>
-  </li>
-  <li class="nav-item">
-   <a class="nav-link btn btn-outline-primary" href="{% url 'issue_form' %}">Lodge Complaint</a>
-  </li>
-  <li class="nav-item">
-   <a class="nav-link btn btn-outline-primary" href="{% url 'complaint_history' %}">Complaint History</a>
-  </li>
-  <li class="nav-item">
-   <a class="nav-link btn btn-outline-primary" href="{% url 'feedback' %}">Feedback</a>
-  </li>
- </ul>
+<body>
 
- <a href="{% url 'logout' %}" class="btn btn-danger mt-3">Logout</a>
+ <div class="container mt-5">
+  <!-- Title -->
+  <h1 class="text-center mb-4">Student Dashboard</h1>
 
- <div class="card mt-4">
-  <div class="card-body">
-   {% block dashboard_content %}{% endblock %}
+  <!-- Welcome message -->
+  <p class="text-center">Welcome, {{ request.user.username }}!</p>
+
+  <!-- Dashboard options -->
+  <div class="row justify-content-center">
+   <div class="col-md-3">
+    <div class="list-group">
+     <a href="{% url 'view_profile' %}" class="list-group-item list-group-item-action active">View Profile</a>
+     <a href="{% url 'issue_form' %}" class="list-group-item list-group-item-action">Lodge Complaint</a>
+     <a href="{% url 'issue_history' %}" class="list-group-item list-group-item-action">Issue history</a>
+     <a href="{% url 'view_feedback' %}" class="list-group-item list-group-item-action active">View Feedback</a>
+
+    </div>
+   </div>
+  </div>
+
+  <!-- Logout button -->
+  <div class="text-center mt-4">
+   <a href="{% url 'landing_page' %}" class="btn btn-danger">Logout</a>
+  </div>
+
+  <!-- Dashboard content -->
+  <div class="card mt-4">
+   <div class="card-body">
+    {% block dashboard_content %}{% endblock %}
+   </div>
   </div>
  </div>
-</div>
-{% endblock %}
+
+</body>
+
+</html>

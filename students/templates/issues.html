@@ -1,0 +1,57 @@
+<!-- issues.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>View Issues</title>
+ <!-- Bootstrap CSS -->
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+ <div class="container">
+  <h1 class="mt-4 mb-4">View Issues</h1>
+  <div class="row">
+   <div class="col-md-12">
+    {% if issues %}
+    <table class="table table-striped">
+     <thead>
+      <tr>
+       <th>Issue ID</th>
+       <th>Issue Type</th>
+       <th>Description</th>
+       <th>Action</th>
+      </tr>
+     </thead>
+     <tbody>
+      {% for issue in issues %}
+      <tr>
+       <td>{{ issue.id }}</td>
+       <td>{{ issue.issue_type }}</td>
+       <td>{{ issue.description }}</td>
+       <td>
+        <!-- Add option to provide feedback -->
+        <a href="{% url 'provide_feedback' issue.id %}">Provide Feedback</a>
+       </td>
+      </tr>
+      {% endfor %}
+     </tbody>
+    </table>
+    {% else %}
+    <p>You currently have no issues for your category.</p>
+    {% endif %}
+   </div>
+  </div>
+  <!-- Logout button -->
+  <div class="row">
+   <div class="col-md-12">
+    <a href="{% url 'admin_dashboard' %}" class="btn btn-primary">Return to Dashboard</a>
+   </div>
+  </div>
+ </div>
+</body>
+
+</html>

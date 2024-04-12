@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>View Feedback</title>
+ <!-- Bootstrap CSS -->
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+ <!-- Custom CSS -->
+ <style>
+  body {
+   font-family: Arial, sans-serif;
+   background-color: #f8f9fa;
+  }
+
+  .container {
+   max-width: 800px;
+   margin: 50px auto;
+   padding: 30px;
+   background-color: #fff;
+   border-radius: 10px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  h1 {
+   text-align: center;
+   color: #007bff;
+   margin-bottom: 30px;
+  }
+
+  th {
+   background-color: #007bff;
+   color: #fff;
+  }
+
+  td {
+   vertical-align: middle;
+  }
+
+  ul {
+   list-style: none;
+   padding-left: 0;
+  }
+
+  li {
+   margin-bottom: 10px;
+   padding: 10px;
+   border-radius: 5px;
+   background-color: #f0f0f0;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+ </style>
+</head>
+
+<body>
+ <div class="container">
+  <h1>Feedback for {{ issue }}</h1>
+  <table class="table table-striped">
+   <thead>
+    <tr>
+     <th>Issue ID</th>
+     <th>Category</th>
+     <th>Description</th>
+     <th>Feedback</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>{{ issue.id }}</td>
+     <td>{{ issue.get_issue_type_display }}</td>
+     <td>{{ issue.description }}</td>
+     <td>
+      <ul>
+       {% for fb in feedback %}
+       {% if fb.student == student %}
+       <li>{{ fb.text }}</li>
+       {% endif %}
+       {% endfor %}
+      </ul>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+</body>
+
+</html>
